@@ -34,7 +34,7 @@ public class Server implements RMI, IFlightServer {
 	}
 	*/
 	public List<Flight> getFlights(){
-		return this.flights;
+		return flights;
 	}
 	
 	
@@ -46,13 +46,16 @@ public class Server implements RMI, IFlightServer {
 		try {
 			System.err.println("Server ready?");
 			Server obj = new Server();
-			//obj.flights.add(new Flight("LH", 123));
-			//obj.flights.add(new Flight("LH", 456));
+			
+			obj.flights = new LinkedList<Flight>();
+			obj.flights.add(new Flight("LH", 123));
+			obj.flights.add(new Flight("LH", 456));
 			//System.err.println(obj.flights.getFirst());
+			
 			RMI stub = (RMI) UnicastRemoteObject.exportObject(obj, 0);
 			// RMI stub = (RMI) UnicastRemoteObject.exportObject(flights, 0);
 			// Bind the remove object's stub in the registry
-			LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
+			//LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
 			Registry registry = LocateRegistry.getRegistry();
 			registry.rebind("RMI", stub);
 //			registry.unbind("RMI");

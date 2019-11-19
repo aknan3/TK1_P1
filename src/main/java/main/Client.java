@@ -15,6 +15,7 @@ public class Client implements IFlightClient{
 	 
 	String clientName;
 	List<Flight> listOfFlights;// = new LinkedList<Flight>();
+	GUIArrivalsDepartures gui;
 	
 	private Client(String clientName){
 		this.clientName = clientName;
@@ -29,12 +30,14 @@ public class Client implements IFlightClient{
 		//	client.listOfFlights = new LinkedList<Flight>();
 			Registry registry = LocateRegistry.getRegistry();
 			RMI stub = (RMI) registry.lookup("RMI");
-			//String response = stub.sayHello();
-			//System.out.println(response);
-			//List<Flight> test = stub.getFlights();
+		
+			client.receiveListOfFlights(stub.getFlights());
+			//System.out.println(client.listOfFlights.get(0).IATACode + client.listOfFlights.get(0).FlightNumber);
+			System.out.println(client.listOfFlights.get(1).IATACode + client.listOfFlights.get(1).FlightNumber);
+			client.gui = new GUIArrivalsDepartures();
 			
-			//client.receiveListOfFlights(stub.getFlights());
-			//System.out.println(client.listOfFlights);
+			
+			
 			System.err.println("Client ready");
 		}catch (Exception e) {
 			System.err.println("Client exception: "+e.toString());

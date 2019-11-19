@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class Flight  {
+public class Flight implements Serializable {
 
 	/**
 	 * 
