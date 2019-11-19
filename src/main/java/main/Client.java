@@ -34,7 +34,10 @@ public class Client implements IFlightClient{
 			client.receiveListOfFlights(stub.getFlights());
 			//System.out.println(client.listOfFlights.get(0).IATACode + client.listOfFlights.get(0).FlightNumber);
 			System.out.println(client.listOfFlights.get(1).IATACode + client.listOfFlights.get(1).FlightNumber);
-			client.gui = new GUIArrivalsDepartures();
+			
+			// GUIArrivalsDepartures + GUIFlightDetails
+		//	client.gui = new GUIArrivalsDepartures();
+		//	client.gui.createTable();
 			
 			
 			

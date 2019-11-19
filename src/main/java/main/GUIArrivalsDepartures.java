@@ -4,8 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
@@ -13,6 +16,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
+
 import main.GUIFlightDetails;
 
 public class GUIArrivalsDepartures {
@@ -23,6 +28,7 @@ public class GUIArrivalsDepartures {
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,12 +41,16 @@ public class GUIArrivalsDepartures {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the application.
 	 */
 	public GUIArrivalsDepartures() {
+		
+		
 		initialize();
+		//frmTkAirportArrivals.setVisible(true);
 	}
 
 	/**
@@ -53,11 +63,13 @@ public class GUIArrivalsDepartures {
 		frmTkAirportArrivals.setBounds(100, 100, 800, 600);
 		frmTkAirportArrivals.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		/*
 		JLabel lblOperatingAirline = new JLabel("Operating Airline:");
 		lblOperatingAirline.setForeground(Color.BLACK);
 		lblOperatingAirline.setBackground(UIManager.getColor("Button.shadow"));
 		
 		JLabel lblIata = new JLabel("IATA Code:");
+		*/
 		
 		table = new JTable();
 		
@@ -115,4 +127,15 @@ public class GUIArrivalsDepartures {
 		);
 		frmTkAirportArrivals.getContentPane().setLayout(groupLayout);
 	}
+
+	/*
+	void createTable() {
+		
+		String[] column = {"Operating Airlines:", "IATA Code:", "Tracking Number:", "Departure", "Arrival", "Terminal"};
+		DefaultTableModel tableMode = new DefaultTableModel(column,0);
+		JTable table = new JTable(tableMode);
+		
+	}
+	*/
+
 }
